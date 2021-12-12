@@ -1,0 +1,122 @@
+{
+  "provider": {
+    "name": "book-service"
+  },
+  "consumer": {
+    "name": "client"
+  },
+  "interactions": [
+    {
+      "description": "save",
+      "request": {
+        "method": "POST",
+        "path": "/books",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "body": {
+          "isbn": "978-0198520115",
+          "title": "The Principles of Quantum Mechanics",
+          "author": "Paul Dirac",
+          "date": "1988-01-07"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "isbn": "978-0198520115",
+          "title": "The Principles of Quantum Mechanics",
+          "author": "Paul Dirac",
+          "date": "1988-01-07"
+        }
+      }
+    },
+    {
+      "description": "find by isbn",
+      "request": {
+        "method": "GET",
+        "path": "/books/findByIsbn/978-3103974812",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "isbn": "978-3103974812",
+          "title": "Können wir die Welt verstehen? Meilensteine der Physik von Aristoteles zur Stringtheorie",
+          "author": "Josef M. Gaßner / Jörn Müller",
+          "date": "2019-10-23"
+        }
+      }
+    },
+    {
+      "description": "find all by author",
+      "request": {
+        "method": "GET",
+        "path": "/books/findAllByAuthor/Brian Greene",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "isbn": "978-3442153749",
+            "title": "Das elegante Universum. Superstrings, verborgene Dimensionen und die Suche nach der Weltformel",
+            "author": "Brian Greene",
+            "date": "2005-12-12"
+          },
+          {
+            "isbn": "978-3886807383",
+            "title": "Der Stoff, aus dem der Kosmos ist. Raum, Zeit und die Beschaffenheit der Wirklichkeit",
+            "author": "Brian Greene",
+            "date": "2004-09-21"
+          }
+        ]
+      }
+    },
+    {
+      "description": "find all by year",
+      "request": {
+        "method": "GET",
+        "path": "/books/findAllByYear/2019",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "isbn": "978-3103974812",
+            "title": "Können wir die Welt verstehen? Meilensteine der Physik von Aristoteles zur Stringtheorie",
+            "author": "Josef M. Gaßner / Jörn Müller",
+            "date": "2019-10-23"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "pact-specification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.3.2"
+    }
+  }
+}
