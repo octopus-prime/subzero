@@ -23,7 +23,7 @@ public class BookService {
     }
 
     public Flux<Book> findAllByAuthor(String author) {
-        return bookRepository.findAllBooksByAuthor(author);
+        return bookRepository.findAllByAuthor(author);
     }
 
     public Flux<Book> findAllByYear(Integer year) {

@@ -13,7 +13,7 @@ public interface BookRepository extends R2dbcRepository<Book, UUID> {
 
     Mono<Book> findByIsbn(String isbn);
 
-    Flux<Book> findAllBooksByAuthor(String author);
+    Flux<Book> findAllByAuthor(String author);
 
     @Query("SELECT book.id, book.isbn, book.title, book.author, book.date FROM book WHERE YEAR(book.date) = :year")
     Flux<Book> findAllByYear(Integer year);
